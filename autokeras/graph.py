@@ -286,7 +286,7 @@ class Graph(keras_tuner.HyperModel, serializable.Serializable):
         )
         # TODO: add adadelta optimizer when it can optimize embedding layer on GPU.
         learning_rate = hp.Choice(
-            "learning_rate", [1e-1, 1e-2, 1e-3, 1e-4, 2e-5, 1e-5], default=1e-3
+            "learning_rate", [2e-5], default=2e-5
         )
 
         if optimizer_name == "adam":
