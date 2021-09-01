@@ -286,7 +286,7 @@ class Graph(keras_tuner.HyperModel, serializable.Serializable):
         )
         # TODO: add adadelta optimizer when it can optimize embedding layer on GPU.
         learning_rate = hp.Choice(
-            "learning_rate", [2e-5], default=2e-5
+            "learning_rate", [1e-4,2e-5], default=2e-5
         )
 
         if optimizer_name == "adam":
@@ -314,7 +314,7 @@ class Graph(keras_tuner.HyperModel, serializable.Serializable):
 
             optimizer = keras_layers.AdamWeightDecay(
                 learning_rate=lr_schedule,
-                weight_decay_rate=0.01,
+                weight_decay_rate=0.00,
                 beta_1=0.9,
                 beta_2=0.999,
                 epsilon=1e-6,
